@@ -10,10 +10,20 @@ public class Sistema {
     return new Scanner(System.in);
   }
 
-  private static void menu (){
+  public static void menu (){
     System.out.println("---- M E N U ----");
     System.out.println("\n1 - Cadastrar consumidor");
     System.out.println("\n2 - Cadastrar fatura");
     System.out.println("3 - Sair do programa");
   }
+
+  public static Consumidor cadastrarConsumidor () throws Exception{
+    String nome = capturarDados("Digite o nome: ").nextLine();
+    String email = capturarDados("Digite o email: ").nextLine();
+    System.out.println("Tipos de cadastro: ");
+    System.out.println(ConsumidorService.mostrarTiposDeCadastro());
+    String tipoDeCadastro = capturarDados("Digite o tipo de cadastro: ").nextLine();
+    return ConsumidorService.cadastrarConsumidor(nome, email, tipoDeCadastro);
+  }
+
 }

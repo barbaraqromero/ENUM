@@ -12,6 +12,7 @@ public class Consumidor {
   public Consumidor(String nome, String email, TipoDeCadastro tipoDeCadastro) {
     this.nome = nome;
     this.email = email;
+    this.tipoDeCadastro = tipoDeCadastro;
   }
 
   public String getNome() {
