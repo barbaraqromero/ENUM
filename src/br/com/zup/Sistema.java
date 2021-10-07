@@ -26,18 +26,31 @@ public class Sistema {
     return ConsumidorService.cadastrarConsumidor(nome, email, tipoDeCadastro);
   }
 
+  public static Fatura cadastrarFatura() throws Exception {
+    String email = capturarDados("Digite o email do consumidor: ").nextLine();
+    double valor = capturarDados("Digite o valor da fatura (em R$): ").nextDouble();
+    String dataDeVencimento = capturarDados("Digite a data de vencimento: ").nextLine();
+
+    return FaturaService.cadastrarFatura(email, valor, dataDeVencimento);
+  }
+
   public static void executar() throws Exception {
     boolean continuar = true;
 
     while (continuar) {
       exibicaoMenu();
       int opcaoDesejada = capturarDados("\nDigite a opção desejada: ").nextInt();
-      if (opcaoDesejada == 1){
+
+      if (opcaoDesejada == 1) {
         Consumidor consumidor = cadastrarConsumidor();
         System.out.println(consumidor);
+      } else if (opcaoDesejada == 2) {
+        Fatura fatura = cadastrarFatura();
+        System.out.println(fatura);
 
+
+      }
     }
   }
 }
 
-}
