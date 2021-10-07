@@ -3,13 +3,11 @@ package br.com.zup;
 
 public class Fatura {
   Consumidor consumidor;
-  private String valor;
+  private double valor;
   private String dataDeVencimento;
 
-  public Fatura() {
-  }
 
-  public Fatura(Consumidor consumidor, String valor, String dataDeVencimento) {
+  public Fatura(Consumidor consumidor, double valor, String dataDeVencimento) {
     this.consumidor = consumidor;
     this.valor = valor;
     this.dataDeVencimento = dataDeVencimento;
@@ -23,11 +21,11 @@ public class Fatura {
     this.consumidor = consumidor;
   }
 
-  public String getValor() {
+  public double getValor() {
     return valor;
   }
 
-  public void setValor(String valor) {
+  public void setValor(double valor) {
     this.valor = valor;
   }
 
