@@ -31,6 +31,17 @@ public class ConsumidorService {
     return consumidor;
   }
 
+  public static Consumidor pesquisarConsumidor(String email) throws Exception {
+    for (Consumidor referencia : consumidorList) {
+      if (referencia.getEmail().equals(email)) {
+        return referencia;
+      }
+    }
+
+    throw new Exception("Consumidor já cadastrado!");
+
+  }
+
   public static List<TipoDeCadastro> mostrarTiposDeCadastro() {
     List<TipoDeCadastro> tipoDeCadastros = new ArrayList<>();
     for (TipoDeCadastro referencia : TipoDeCadastro.values()) {

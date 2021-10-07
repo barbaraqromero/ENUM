@@ -2,7 +2,7 @@ package br.com.zup;
 
 
 public class Fatura {
-  Consumidor consumidor;
+  private Consumidor consumidor;
   private double valor;
   private String dataDeVencimento;
 

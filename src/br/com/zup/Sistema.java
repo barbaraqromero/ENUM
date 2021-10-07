@@ -1,6 +1,7 @@
 package br.com.zup;
 
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Sistema {
@@ -14,7 +15,7 @@ public class Sistema {
     System.out.println("\n---- M E N U ----");
     System.out.println("1 - Cadastrar consumidor");
     System.out.println("2 - Cadastrar fatura");
-    System.out.println("3 - Sair do programa");
+    System.out.println("3 - Consultar faturas");
   }
 
   public static Consumidor cadastrarConsumidor() throws Exception {
@@ -34,6 +35,13 @@ public class Sistema {
     return FaturaService.cadastrarFatura(email, valor, dataDeVencimento);
   }
 
+  public static List<Fatura> mostrarFaturas () throws Exception {
+    String email = capturarDados("Digite o email para consulta: ").nextLine();
+    ConsumidorService.validarEmail(email);
+    List<Fatura> faturas = FaturaService.pesquisarFaturaPorEmail(email);
+    return faturas;
+  }
+
   public static void executar() throws Exception {
     boolean continuar = true;
 
@@ -47,8 +55,9 @@ public class Sistema {
       } else if (opcaoDesejada == 2) {
         Fatura fatura = cadastrarFatura();
         System.out.println(fatura);
-
-
+      } else if (opcaoDesejada == 3){
+        List<Fatura> faturas = mostrarFaturas();
+        System.out.println(faturas);
       }
     }
   }
