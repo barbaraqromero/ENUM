@@ -4,8 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
       try {
-        Consumidor consumidor = Sistema.cadastrarConsumidor();
-        System.out.println(consumidor);
+        Sistema.executar();
 
       }
       catch (Exception erro){
